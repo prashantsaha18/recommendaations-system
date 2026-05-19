@@ -198,7 +198,7 @@ def rank_glow(i: int) -> str:
 # CARD RENDERERS
 # ─────────────────────────────────────────────────────────────────────────────
 def render_poster_grid(df: pd.DataFrame, score_col=None, n=12,
-                        extra_key="", show_actions=True):
+                        extra_key="", show_actions=True, max_score=None):
     if df is None or df.empty:
         st.markdown('<div style="text-align:center;padding:2rem;color:rgba(234,234,245,.3)">'
                     '🎞️ No results — try adjusting your filters.</div>', unsafe_allow_html=True)

@@ -87,7 +87,7 @@ with st.sidebar:
         '-webkit-background-clip:text;-webkit-text-fill-color:transparent">CINEMATCH</span>'
         '</div>', unsafe_allow_html=True)
 
-    page = st.radio("", [
+    page = st.radio("Navigation", [
         "🔍 Discover", "🧬 Taste DNA", "🎭 Mood Picks",
         "🔥 Trending", "🎲 Surprise Me", "🎨 Genre Blender",
         "🎊 Watch Party", "⚖️ Algorithm Lab",
@@ -305,7 +305,7 @@ elif page == "🧬 Taste DNA":
                             f'<br>{genre_tags_html(m.get("genres",""), 2)}',
                             unsafe_allow_html=True)
             with cb:
-                nv = st.select_slider("", [0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0],
+                nv = st.select_slider("Rating", [0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0],
                                       value=cur, key=f"rsl_{mid_r}",
                                       label_visibility="collapsed")
                 st.session_state.profile_ratings[mid_r] = nv
@@ -384,8 +384,7 @@ elif page == "🎭 Mood Picks":
                 f'padding:10px 6px;text-align:center;margin-bottom:8px;cursor:pointer;'
                 f'font-size:.82rem;font-weight:600;color:{"white" if active else "rgba(234,234,245,.6)"}">'
                 f'{mood}</div>', unsafe_allow_html=True)
-            if st.button("Select", key=f"mood_{i}", use_container_width=True,
-                         label_visibility="collapsed"):
+            if st.button(mood, key=f"mood_{i}", use_container_width=True):
                 st.session_state.active_mood = mood; st.rerun()
 
     if st.session_state.active_mood:
