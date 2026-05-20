@@ -806,4 +806,4 @@ elif page == "📊 Analytics":
                 st.bar_chart(ev, use_container_width=True, height=240)
                 st.success("✅ Evaluation complete!")
             else:
-             #   st.warning("Not enough overlapping data.")
+               st.warning("Not enough overlapping data.")
